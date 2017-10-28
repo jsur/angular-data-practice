@@ -10,26 +10,24 @@ import { PlayerDetails } from '../models/PlayerDetails';
 })
 export class PlayerComponent implements OnInit {
   currentPlayer: PlayerDetails;
+  playerId: number;
 
   constructor(
     private activeRoute: ActivatedRoute,
     private stats: StatisticsService
-  ) { }
+  ) {
+    this.activeRoute.params
+      .subscribe(data => this.playerId = data.id);
+  }
 
   ngOnInit() {
-    this.activeRoute.params
+    this.stats.getPlayer(this.playerId)
       .subscribe(
-        data => {
-          this.stats.getPlayer(data.id)
-            .subscribe(
-              player => {
-                this.currentPlayer = player[0];
-              },
-              err => console.log('show error in ui with a service and a top-level component etc.')
-            );
+        player => {
+          this.currentPlayer = player[0];
         },
         err => console.log('show error in ui with a service and a top-level component etc.')
       );
-  }
+    }
 
 }

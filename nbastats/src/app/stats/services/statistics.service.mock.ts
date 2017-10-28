@@ -14,9 +14,9 @@ export class MockStatisticsService {
       ]);
     }
 
-    getPlayer(id: number): Observable<PlayerDetails> {
+    getPlayer(): Observable<PlayerDetails[]> {
       return Observable.of(
-        { name: 'Test', surname: 'Player', dateofbirth: '1988-05-06T00:00:00' }
+        [{ name: 'Test', surname: 'Player', dateofbirth: '1988-05-06T00:00:00' }]
       );
     }
 }

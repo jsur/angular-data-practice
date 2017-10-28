@@ -16,7 +16,6 @@ describe('PlayerComponent', () => {
       imports: [RouterTestingModule],
       declarations: [ PlayerComponent ],
       providers: [
-        { provide: ActivatedRoute, useValue: { params: Observable.of({id: 123}) }},
         { provide: StatisticsService, useClass: MockStatisticsService }
       ]
     })
