@@ -16,7 +16,7 @@ export class PlayerListComponent implements OnInit {
     this.stats.getPlayerList()
       .subscribe(
         data => this.players = data,
-        err => console.log('show error in ui somehow.')
+        err => console.log('show error in ui with a service and a top-level component etc.')
       )
   }
 

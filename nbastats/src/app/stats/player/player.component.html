@@ -1,3 +1,7 @@
-<p>
-  player works!
-</p>
+<p class="waiting" *ngIf="!currentPlayer">⏲️</p>
+
+<div class="playerdata" *ngIf="currentPlayer">
+  <p>{{currentPlayer.name}}</p>
+  <p>{{currentPlayer.surname}}</p>
+  <p>Date of birth: {{ currentPlayer.dateofbirth | date }}</p>
+</div>
