@@ -5,13 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { PlayerListComponent } from './player-list.component';
 import { StatisticsService } from '../services/statistics.service';
 import { Player } from '../models/Player';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { MockStatisticsService } from '../services/statistics.service.mock';
 
 describe('PlayerListComponent', () => {
   let component: PlayerListComponent;
   let fixture: ComponentFixture<PlayerListComponent>;
-  let service: StatisticsService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

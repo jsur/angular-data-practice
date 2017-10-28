@@ -13,7 +13,7 @@ import { StatisticsService } from './services/statistics.service';
     StatsRouting
   ],
   declarations: [
-    PlayerListComponent, 
+    PlayerListComponent,
     PlayerComponent
   ],
   providers: [

@@ -22,14 +22,14 @@ export class PlayerComponent implements OnInit {
         data => {
           this.stats.getPlayer(data.id)
             .subscribe(
-              data => {
-                this.currentPlayer = data[0]
+              player => {
+                this.currentPlayer = player[0];
               },
               err => console.log('show error in ui with a service and a top-level component etc.')
-            )
+            );
         },
         err => console.log('show error in ui with a service and a top-level component etc.')
-      )
+      );
   }
 
 }

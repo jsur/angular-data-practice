@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute } from '@angular/router';
 import { PlayerComponent } from './player.component';
+import { StatisticsService } from '../services/statistics.service';
+import { MockStatisticsService } from '../services/statistics.service.mock';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 describe('PlayerComponent', () => {
   let component: PlayerComponent;
@@ -8,7 +13,12 @@ describe('PlayerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlayerComponent ]
+      imports: [RouterTestingModule],
+      declarations: [ PlayerComponent ],
+      providers: [
+        { provide: ActivatedRoute, useValue: { params: Observable.of({id: 123}) }},
+        { provide: StatisticsService, useClass: MockStatisticsService }
+      ]
     })
     .compileComponents();
   }));
@@ -21,5 +31,9 @@ describe('PlayerComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should populate currentPlayer with surname Player', () => {
+    expect(component.currentPlayer.surname).toEqual('Player');
   });
 });

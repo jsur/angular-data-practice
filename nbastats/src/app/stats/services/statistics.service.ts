@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { RequestOptions, Headers } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { environment } from '../../../environments/environment';
 import { Player } from '../models/Player';
 import { PlayerDetails } from '../models/PlayerDetails';
@@ -15,7 +15,7 @@ export class StatisticsService {
   constructor(private http: HttpClient) { }
 
   private statsQueryString = `PerMode=Totals&LeagueID=00&Season=2016-17&SeasonType=Regular Season`;
-  private playerQueryString = 'PlayerID='
+  private playerQueryString = 'PlayerID=';
 
   getPlayerList(): Observable<Player[]> {
      return this.http.get(`
@@ -27,7 +27,7 @@ export class StatisticsService {
         })
       )
       .retry(3)
-      .catch(this.catchError)
+      .catch(this.catchError);
   }
 
   getPlayer(id: number): Observable<PlayerDetails> {
@@ -39,7 +39,7 @@ export class StatisticsService {
       })
     )
     .retry(3)
-    .catch(this.catchError)
+    .catch(this.catchError);
   }
 
   private catchError(e: HttpErrorResponse): Observable<HttpErrorResponse> {
