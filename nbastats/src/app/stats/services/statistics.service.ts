@@ -18,14 +18,14 @@ export class StatisticsService {
   getPlayerList(): Observable<Player[]> {
      return this.http.get(`
       ${environment.base_url}leaguedashplayerbiostats?${this.statsQueryString}`)
-        .retry(3)
-        .catch(this.catchError)
         .map(((response: any) => {
           return response.resultSets[0].rowSet.map((item) => {
             return new Player(item);
           });
         })
-      );
+      )
+      .retry(3)
+      .catch(this.catchError)
   }
 
   private catchError(e: HttpErrorResponse): Observable<HttpErrorResponse> {
