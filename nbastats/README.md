@@ -1,6 +1,7 @@
 # Nbastats
 
-Instructions below. Some unit tests and e2e tests included.
+Instructions below. Some unit tests and e2e tests included.  
+Test done.
 
 ## Development server
 
