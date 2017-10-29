@@ -33,7 +33,7 @@ export class StatisticsService {
   getPlayer(id: number): Observable<PlayerDetails> {
     return this.http.get(`${environment.base_url}commonplayerinfo?${this.playerQueryString}${id}`)
       .map(((response: any) => {
-        return response.resultSets[0].rowSet.map((item) => {
+       return response.resultSets[0].rowSet.map((item) => {
           return new PlayerDetails(item);
         });
       })

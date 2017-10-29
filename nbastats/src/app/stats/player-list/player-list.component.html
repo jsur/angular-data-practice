@@ -1,4 +1,6 @@
-<div class="playerlist">
+<p *ngIf="!players">Loading...</p>
+
+<div class="playerlist" *ngIf="players">
   <div *ngFor="let player of players">
     <span> <a routerLink="/player/{{player.id}}">{{player.name}}</a></span>
     <span>Team: {{player.teamname}}</span>

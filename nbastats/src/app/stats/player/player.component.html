@@ -1,7 +1,7 @@
 <p class="waiting" *ngIf="!currentPlayer">Loading...</p>
 
 <div class="playerdata" *ngIf="currentPlayer">
-  <p>{{currentPlayer.name}}</p>
-  <p>{{currentPlayer.surname}}</p>
+  <p>Name: {{currentPlayer.name}}</p>
+  <p>Surname: {{currentPlayer.surname}}</p>
   <p>Date of birth: {{ currentPlayer.dateofbirth | date }}</p>
 </div>

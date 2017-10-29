@@ -19,5 +19,4 @@ export class PlayerListComponent implements OnInit {
         err => console.log('show error in ui with a service and a top-level component etc.')
       );
   }
-
 }
